@@ -1,1 +1,1 @@
-##[离散数学](./Discrete_Math/index.pdf)
+<a href=".\Discrete_Math\index.pdf">离散数学</a>
