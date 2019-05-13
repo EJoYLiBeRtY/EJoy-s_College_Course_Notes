@@ -1,1 +1,1 @@
-##[离散数学](./Discrete_Math/index.html)
+##[离散数学](./Discrete_Math/index.pdf)
