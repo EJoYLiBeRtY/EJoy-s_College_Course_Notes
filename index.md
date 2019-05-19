@@ -1,2 +1,2 @@
-####[离散数学(在线html)](./Discrete_Math/index.html)
-####<a href="./Discrete_Math/index.pdf">离散数学(离线PDF,适合于手机阅读的A5格式)</a>
+####[离散数学](./Discrete_Math/index.html)
+####[高等数学](./Further_Math/index.html)
