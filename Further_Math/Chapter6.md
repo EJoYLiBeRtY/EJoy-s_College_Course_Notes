@@ -1,3 +1,8 @@
+---
+id: "special_style"
+---
+@import "./local.less"
+***
 ## 第六章 多元函数微分学
 ***
 ### 第一节 多元函数
@@ -95,7 +100,7 @@ $$\frac{\partial z}{\partial x}, \frac{\partial f}{\partial x}, z_x, f_x(x, y)$$
 关于$y$的偏导函数类似。
 
 **高阶偏导数**
-如果$z'_x$和$z'_y$关于自变量$x,y$的偏导数还存在，则有二间偏导数，记作
+如果$z'_x$和$z'_y$关于自变量$x,y$的偏导数还存在，则有二阶偏导数，记作
 $$\frac{\partial}{\partial x}(\frac{\partial z}{\partial x}) = \frac{\partial ^2z}{\partial x^2} = z''_{xx} = z''_{x^2},\qquad
 \frac{\partial}{\partial y}(\frac{\partial z}{\partial x}) = \frac{\partial ^2z}{\partial x \partial y} = z''_{xy}$$
 $$\frac{\partial}{\partial y}(\frac{\partial z}{\partial y}) = \frac{\partial ^2z}{\partial y^2} = z''_{yy} = z''_{y^2},\qquad
@@ -103,7 +108,7 @@ $$\frac{\partial}{\partial y}(\frac{\partial z}{\partial y}) = \frac{\partial ^2
 类似的，可以定义更高阶的偏导数。
 
 需要注意的是，$f''_{xy}$和$f''_{yx}$可以同时存在但不相等。
-当$f(x, y)$在点$P(x_0, y_0)$之邻域$G$内有连续的二级偏导数$f''_{xy}(x, y),f''_{yx}(x, y)$时，有$f''_{xy}(x, y) = f''_{yx}(x, y)$。
+当$f(x, y)$在点$P(x_0, y_0)$之邻域$G$内有连续的二阶偏导数$f''_{xy}(x, y),f''_{yx}(x, y)$时，有$f''_{xy}(x, y) = f''_{yx}(x, y)$。
 
 #### 1.4 全微分
 
@@ -128,3 +133,125 @@ $$\frac{\partial z}{\partial t} = \frac{\partial z}{\partial x} \frac{\partial x
 如果要求复合函数的高阶偏导数的话，只要重复上面的方法即可。
 
 #### 1.6 隐函数的微分法
+
+**隐函数存在定理**
+***(1)一个方程确定的隐函数***
+
+**定理1**
+设函数$F(x, y)$在以点$(x_0, y_0)$为心得矩形区域$D$内满足下列条件：
+1. $F'_x(x, y)$和$F'_y(x, y)$在$D$内连续。
+1. $F(x_0, y_0) = 0, F'_y(x_0, y_0) \not= 0$。
+
+则有：
+1. 存在$\delta > 0$，在区间$I = (x - \delta, x + \delta)$内存在唯一隐函数$y=f(x)$，使$F[x, f(x)] \equiv 0, f(x_0) = y_0$。
+1. $y = f(x)$在$I$内连续。
+1. $y = f(x)$在$I$内有连续导数，且$f'(x) = -\frac{F'_x}{F'_y}$。
+
+**定理2**
+设函数$F(x_1, x_2, ... , x_n, y)$在以点$P(x^0_1, x^0_2, ..., x^0_n, y)$为心的矩形区域$D$内满足下列条件：
+1. $F'_{x_1}, F'_{x_2}, ..., F'_{x_n}, F'_y$在$D$内连续。
+1. $F(x^0_1, x^0_2, ... , x^0_n, y^0) = 0, F'_y(x^0_1, x^0_2, ... , x^0_n, y^0) \not= 0$。
+
+则有：
+1. 在点$Q(x^0_1, x^0_2, ... , x^0_n)$的邻域$U$内，存在唯一一个隐函数$y = f(x_1, x_2, ... , x_n)$，使$F[x_1, x_2, ... , x_n, f(x_1, x_2, ... , x_n)] \equiv 0, y = f(x_1, x_2, ... , x_n)$。
+1. $y = f(x_1, x_2, ... , x_n)$在$U$内连续。
+1. $y = f(x_1, x_2, ... , x_n)$在$U$内有连续偏导数，且有
+$$\frac{\partial y}{\partial x_i} = -\frac{F'_{x_i}}{F'_y}\qquad (i = 1,2,...,n)$$
+
+***(2)由方程组确定的隐函数***
+对于方程组
+$$
+\left\{ 
+\begin{array}{ll}
+    F(x, y, u, v) = 0\\
+    G(x, y, u, v) = 0\\
+\end{array} 
+\right.
+$$
+有如下定理：
+若函数$F(x, y, u, v), G(x, y, u, v)$在点$P(x_0, y_0, u_0, v_0)$的邻域$D$内满足下列条件：
+1. 函数$F(x, y, u, v), G(x, y, u, v)$的所有一阶偏导数在$D$连续。
+1. $F(x, y, u, v) = 0, G(x, y, u, v) = 0$.
+1. $
+J = \left|
+\begin{array}{cccc} 
+    F'_u & F'_v\\ 
+    G'_u & G'_v\\ 
+\end{array}
+\right| _P \not= 0
+$
+
+则在点$Q(x_0, y_0)$的邻域$U$内存在唯一的隐函数组
+$$u = u(x, y), v = v(x, y)$$
+满足：
+1. $
+\left\{ 
+\begin{array}{ll}
+    F[x, y, u(x, y), v(x, y)] \equiv 0\\
+    G[x, y, u(x, y), v(x, y)] \equiv 0\\
+\end{array} 
+\right.
+$且$u_0 = u(x_0, y_0), v_0= v(x_0, y_0)$
+1. $u(x, y)$和$v(x, y)$具有连续的偏导数$u'_x, u'_y, v'_x, v'_y$。
+$$
+u'_x = -\frac{1}{J}
+\left|
+\begin{array}{cccc} 
+    F'_x & F'_v\\ 
+    G'_x & G'_v\\ 
+\end{array}
+\right| \qquad
+u'_y = -\frac{1}{J}
+\left|
+\begin{array}{cccc} 
+    F'_y & F'_v\\ 
+    G'_y & G'_v\\ 
+\end{array}
+\right|
+$$
+$$
+v'_x = -\frac{1}{J}
+\left|
+\begin{array}{cccc} 
+    F'_x & F'_u\\ 
+    G'_x & G'_u\\ 
+\end{array}
+\right| \qquad
+v'_y = -\frac{1}{J}
+\left|
+\begin{array}{cccc} 
+    F'_y & F'_u\\ 
+    G'_y & G'_u\\ 
+\end{array}
+\right|
+$$
+
+**雅各比行列式**
+通常把函数关于某些变量的偏导数所做成的行列式，叫做雅各比行列式。
+比如：
+$$
+\frac{D(F, G)}{D(u, v)} = \left|
+\begin{array}{cccc} 
+    F'_u & F'_v\\ 
+    G'_u & G'_v\\ 
+\end{array}
+\right|
+$$
+此行列式有如下性质：
+1. $$\frac{D(F, G)}{D(u, v)} = \frac{D(F, G)}{D(x, y)} \cdot \frac{D(x, y)}{D(u, v)}$$
+1. $$\frac{D(x, y)}{D(u, v)} \cdot \frac{D(u, v)}{D(x, y)} = 1;
+\frac{D(x, y)}{D(u, v)} = \frac{1}{\frac{D(u, v)}{D(x, y)}}$$
+
+**隐函数微分法**
+有隐函数存在定理后，就可以通过复合函数微分法来求解隐函数的导数、偏导数。
+
+***(1)一个方程的情形***
+若$F'_x(x, y) \not= 0$，则由方程$F(x, y) = 0$确定了$y$为$x$的函数，在方程两侧对$x$求导，有$F'_x(x, y) + F'_y(x, y) \cdot y' = 0$
+所以有
+$$y'(x) = \frac{\text{d}y}{\text{d}x} = -\frac{F'_x(x, y)}{F'_y(x, y)}
+$$
+同样，如果$F'_x(x, y) \not= 0$，可以类似地写出$x = x(y)$的导数。
+若$F'_x(x, y, z) \not= 0$，则由方程$F(x, y, z) = 0$确定了$z$对$x, y$的函数，根据符合函数微分法，将方程分别对$x$和$y$求导，得：
+$$F'_x(x, y, z) + F'_z(x, y, z)z'_x = 0, F'_y(x, y, z) + F'_z(x, y, z)z'_y = 0$$
+易得
+$$z'_x = -\frac{F'_x(x, y, z)}{F'_z(x, y, z)}, z'_y = -\frac{F'_y(x, y, z)}{F'_z(x, y, z)}$$
